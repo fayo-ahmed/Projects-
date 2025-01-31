@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Financial Reports</title>
+</head>
+<body>
+    <h1>Financial Reports</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Product Name</th>
+                <th>Category</th>
+                <th>Quantity</th>
+                <th>Unit Price</th>
+                <th>Total Sold</th>
+                <th>Stock Value</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in report_data %}
+                <tr>
+                    <td>{{ row[0] }}</td>
+                    <td>{{ row[1] }}</td>
+                    <td>{{ row[2] }}</td>
+                    <td>${{ row[3] }}</td>
+                    <td>{{ row[4] if row[4] else 0 }}</td>
+                    <td>${{ row[5] }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="{{ url_for('index') }}">Back to Inventory</a>
+</body>
+</html>
